@@ -3,6 +3,7 @@ import { addTodo, receiveInput } from "../../store/reducers/todosReducer";
 import { displayError } from "../../store/reducers/errorReducer";
 import useInputRef from "../../store/hooks/useInputRef";
 import { MESSAGES } from "../../utils/messages";
+import validateInput from "../../utils/validateInput";
 
 export default function TodoInput() {
   // using dispatch to update the value of the input on change

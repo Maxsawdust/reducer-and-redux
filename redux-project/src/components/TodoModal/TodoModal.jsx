@@ -7,7 +7,7 @@ import { useContext } from "react";
 import { IdContext } from "../Todo/Todo";
 import validateInput from "../../utils/validateInput";
 
-export default function TodoModal({ handleClick }) {
+export default function TodoModal({ handleClick, id }) {
   const todosState = useSelector((state) => state.todosReducer);
   const dispatch = useDispatch();
   const todo = useContext(IdContext);
@@ -19,7 +19,9 @@ export default function TodoModal({ handleClick }) {
       dispatch(displayError(MESSAGES.EMPTY));
       return;
     }
-    dispatch(editTodo(e.target[0].value));
+    console.log(e.target[0]);
+    dispatch(editTodo({ input: e.target.value, todoId: id }));
+    handleClick(null);
   };
 
   const handleChange = (e) => {

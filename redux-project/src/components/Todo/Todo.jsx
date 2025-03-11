@@ -38,7 +38,9 @@ export default function Todo({ todo }) {
           />
         </div>
         <IdContext.Provider value={todo}>
-          <ModalButton value={"EDIT"}>edit</ModalButton>
+          <ModalButton value={"EDIT"} id={todo.id}>
+            edit
+          </ModalButton>
         </IdContext.Provider>
         <button className="delete" onClick={handleClick}>
           delete

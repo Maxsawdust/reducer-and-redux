@@ -42,7 +42,15 @@ const todoSlice = createSlice({
       });
     },
 
-    editTodo: (state, action) => {},
+    editTodo: (state, action) => {
+      state.todos = state.todos.map((item) => {
+        if (item.id === action.payload.todoId) {
+          return { ...item, content: state.inputValue };
+        }
+        return item;
+      });
+      state.inputValue = "";
+    },
   },
 });
 

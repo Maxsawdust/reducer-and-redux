@@ -3,6 +3,7 @@ import useInputRef from "../../store/hooks/useInputRef";
 import { addTodo } from "../../store/reducers/todosReducer";
 import { displayError } from "../../store/reducers/errorReducer";
 import { MESSAGES } from "../../utils/messages";
+import validateInput from "../../utils/validateInput";
 
 export default function AddButton() {
   const inputRef = useInputRef();
