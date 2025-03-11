@@ -33,6 +33,7 @@ export default function Todo({ todo }) {
       <h3 className="todo-content">{todo.content}</h3>
       <div className="todo-buttons">
         <div className="checkbox-container">
+          <label>Complete Todo</label>
           <input
             type="checkbox"
             ref={checkboxRef}
@@ -42,12 +43,10 @@ export default function Todo({ todo }) {
           />
         </div>
         <IdContext.Provider value={todo}>
-          <ModalButton value={"EDIT"} id={todo.id}>
-            edit
-          </ModalButton>
+          <ModalButton value={"EDIT"}>Edit</ModalButton>
         </IdContext.Provider>
         <button className="delete" onClick={handleClick}>
-          delete
+          Delete
         </button>
       </div>
     </div>

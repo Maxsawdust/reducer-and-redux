@@ -57,11 +57,14 @@ header {
 }
 
 button {
+  min-width: 2.5rem;
+  min-height: 2.5rem;
   padding: 0.2rem 0.5rem;
   border-radius: 0.5rem;
   border: 1px solid #00000074;
   background-color: #e7e7e7;
   transition: all 0.1s ease;
+  cursor: pointer;
 }
 
 button:hover {

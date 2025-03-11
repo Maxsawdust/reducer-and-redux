@@ -12,9 +12,8 @@ export default function InfoModal({ handleClick }) {
         <div className="info-container">
           <p>This is a todo list app!</p>
           <p>
-            To add something you need to do to the list, click the{" "}
-            <b>"Add Todo" </b>
-            button.
+            To add something you need to do to the list, enter it input the
+            input box and then press enter, or click <b>Add Todo</b>.
           </p>
           <p>
             You will then be able to <em>complete, edit, or delete</em> this

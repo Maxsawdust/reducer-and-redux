@@ -7,9 +7,10 @@ import { useContext } from "react";
 import { IdContext } from "../Todo/Todo";
 import validateInput from "../../utils/validateInput";
 
-export default function TodoModal({ handleClick, id }) {
+export default function TodoModal({ handleClick }) {
   const todosState = useSelector((state) => state.todosReducer);
   const dispatch = useDispatch();
+  // getting the current todo from context
   const todo = useContext(IdContext);
 
   const handleSubmit = (e) => {
@@ -21,7 +22,7 @@ export default function TodoModal({ handleClick, id }) {
       return;
     }
     // dispatch the edit reducer
-    dispatch(editTodo({ input: e.target.value, todoId: id }));
+    dispatch(editTodo({ input: e.target.value, todoId: todo.id }));
     // close the modal
     handleClick(null);
   };
@@ -41,7 +42,7 @@ export default function TodoModal({ handleClick, id }) {
         <form className="edit-input-container" onSubmit={handleSubmit}>
           <input
             type="text"
-            placeholder="Enter the new name for the Todo Item"
+            placeholder={todo.content}
             value={todosState.inputValue}
             onChange={handleChange}
           />
