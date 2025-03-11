@@ -2,6 +2,7 @@ import { useDispatch } from "react-redux";
 import { closeError } from "../../store/reducers/errorReducer";
 import "./ErrorModal.css";
 
+// modal that displays error message based on parameter
 export default function ErrorModal({ message }) {
   const dispatch = useDispatch();
   return (

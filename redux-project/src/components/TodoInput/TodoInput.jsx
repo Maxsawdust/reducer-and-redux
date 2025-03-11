@@ -4,16 +4,21 @@ import { displayError } from "../../store/reducers/errorReducer";
 import useInputRef from "../../store/hooks/useInputRef";
 import { MESSAGES } from "../../utils/messages";
 import validateInput from "../../utils/validateInput";
+import "./TodoInput.css";
 
 export default function TodoInput() {
   // using dispatch to update the value of the input on change
   const dispatch = useDispatch();
   // calling my custom hook to get the ref
   const inputRef = useInputRef();
+  // getting inputValue from state as to control the input's value property
   const input = useSelector((state) => state.todosReducer.inputValue);
 
+  // this is necessary because the input isn't in a form
   const handleKeyDown = (e) => {
+    // check the key pressed
     if (e.key === "Enter") {
+      // if the input is empty, display the errorModal with a message passed in
       if (!validateInput(input)) {
         dispatch(displayError(MESSAGES.EMPTY));
         return;

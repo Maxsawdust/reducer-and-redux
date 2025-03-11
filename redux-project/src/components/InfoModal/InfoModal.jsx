@@ -1,5 +1,6 @@
 import "./InfoModal.css";
 
+// modal that displays info when the info button is clicked
 export default function InfoModal({ handleClick }) {
   return (
     <div className="modal-container">

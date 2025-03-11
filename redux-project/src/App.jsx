@@ -13,15 +13,17 @@ import AppContext from "./store/context/AppContext";
 sessionStorage.setItem("latestId", 2);
 
 function App() {
+  // errorReducer has a message to be displayed, passed in as payload
   const state = useSelector((state) => state.errorReducer);
-
-  console.log(state);
 
   return (
     <div className="App">
+      {/* context to share the inputRef with add button, as to implement focusing */}
       <AppContext>
-        <h1>Redux ToDo App</h1>
-        <TodoCounter />
+        <header>
+          <h1>Redux ToDo App</h1>
+          <TodoCounter />
+        </header>
         <TodoInput />
         <HeaderButtons />
         <TodoDisplay />

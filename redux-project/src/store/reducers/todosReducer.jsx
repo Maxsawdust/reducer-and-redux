@@ -16,23 +16,31 @@ const todoSlice = createSlice({
   initialState: initialState,
   // creating reducers to control the todo actions
   reducers: {
+    // reducer to update the state's input as a user inputs things
     receiveInput: (state, action) => {
       state.inputValue = action.payload;
     },
 
+    // this reducer pushed a new Todo item to the state array with content from payload
     addTodo: (state, action) => {
       state.todos.push({
         content: action.payload.content,
         id: getId(),
         completed: false,
       });
+      // resetting the input value
       state.inputValue = "";
     },
 
+    // this reducer takes an id as payload
     deleteTodo: (state, action) => {
-      state.todos = action.payload;
+      /* when delete button is pressed, filter through the todos and generate a new
+       array without the selected item */
+      const newTodos = state.todos.filter((item) => item.id !== action.payload);
+      state.todos = newTodos;
     },
 
+    // checks todos array against id from payload and reverse the 'completed' state
     completeTodo: (state, action) => {
       state.todos = state.todos.map((item) => {
         if (item.id === action.payload.id) {
@@ -42,6 +50,7 @@ const todoSlice = createSlice({
       });
     },
 
+    // checks id against todos array and updates the content from inputValue state
     editTodo: (state, action) => {
       state.todos = state.todos.map((item) => {
         if (item.id === action.payload.todoId) {
@@ -49,6 +58,7 @@ const todoSlice = createSlice({
         }
         return item;
       });
+      // reset the input value
       state.inputValue = "";
     },
   },

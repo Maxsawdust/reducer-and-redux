@@ -29,6 +29,15 @@
   color: white;
 }
 
+header {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-bottom: 3px solid white;
+}
+
 /* these are defined here, because two components use them */
 .modal-container {
   width: 100%;
@@ -37,6 +46,7 @@
   top: 0;
   left: 0;
   background-color: #00000032;
+  z-index: 1;
   animation: fadeIn 0.2s ease;
 }
 

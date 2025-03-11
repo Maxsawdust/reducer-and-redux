@@ -5,6 +5,7 @@ const initialState = {
   message: "",
 };
 
+// this slice is to display the errorModal with appropriate message
 const errorSlice = createSlice({
   name: "error",
   initialState: initialState,
@@ -13,6 +14,7 @@ const errorSlice = createSlice({
       state.isDisplayed = true;
       state.message = action.payload;
     },
+
     closeError: (state) => {
       state.isDisplayed = false;
       state.message = "";

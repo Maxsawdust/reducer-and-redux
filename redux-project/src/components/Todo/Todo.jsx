@@ -7,13 +7,16 @@ import { createContext, useEffect, useRef } from "react";
 export const IdContext = createContext();
 
 export default function Todo({ todo }) {
+  // selector to get the array
   const todos = useSelector((state) => state.todosReducer.todos);
   const dispatch = useDispatch();
   const checkboxRef = useRef(null);
 
   const handleClick = () => {
+    /* when delete button is pressed, filter through the todos and generate a new
+       array without the selected item */
     const newTodos = todos.filter((item) => item.id !== todo.id);
-    dispatch(deleteTodo(newTodos));
+    dispatch(deleteTodo(todo.id));
   };
 
   /* There was a bug where if you completed a Todo, then deleted it, then the 
@@ -25,7 +28,7 @@ export default function Todo({ todo }) {
   }, [todos]);
 
   return (
-    //
+    // manipulating the className so that the element changes upon completion
     <div className={todo.completed ? "Todo completed-todo" : "Todo"}>
       <h3 className="todo-content">{todo.content}</h3>
       <div className="todo-buttons">
@@ -33,6 +36,7 @@ export default function Todo({ todo }) {
           <input
             type="checkbox"
             ref={checkboxRef}
+            // completing the todo on change
             onChange={() => dispatch(completeTodo(todo))}
             className="complete"
           />

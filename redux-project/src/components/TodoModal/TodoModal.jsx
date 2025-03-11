@@ -14,17 +14,20 @@ export default function TodoModal({ handleClick, id }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(e.target);
+
+    // check that the edit box isn't empty
     if (!validateInput(e.target[0].value)) {
       dispatch(displayError(MESSAGES.EMPTY));
       return;
     }
-    console.log(e.target[0]);
+    // dispatch the edit reducer
     dispatch(editTodo({ input: e.target.value, todoId: id }));
+    // close the modal
     handleClick(null);
   };
 
   const handleChange = (e) => {
+    // updating the state as the input changes as to reflec the input
     dispatch(receiveInput(e.target.value));
   };
 

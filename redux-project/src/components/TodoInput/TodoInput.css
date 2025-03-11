@@ -1,0 +1,14 @@
+.TodoInput {
+  /* sizing */
+  padding: 0.5rem 1rem;
+  min-width: 35rem;
+  font-size: 1.5rem;
+  /* display */
+
+  margin-top: 2rem;
+  margin-bottom: 0.5rem;
+  /* styling */
+  border-radius: 1rem;
+  border: none;
+  box-shadow: 0 0 0.5rem white;
+}
