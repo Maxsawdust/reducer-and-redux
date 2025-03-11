@@ -1,0 +1,52 @@
+.Todo {
+  /* sizing */
+  padding: 0.5rem;
+  /* display */
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+  /* styling */
+  border-bottom: 1px solid rgba(0, 0, 0, 0.263);
+  background-color: #b3b8d8;
+  border-radius: 0.5rem;
+}
+
+.completed-todo {
+  opacity: 0.7;
+}
+
+.completed-todo > h3 {
+  text-decoration: line-through;
+}
+
+.Todo:nth-of-type(even) {
+  background-color: #ebebeb;
+}
+
+.todo-buttons {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.checkbox-container {
+  height: 85%;
+  position: relative;
+}
+
+/* this long selector makes it so a checkmark appears on hover, but not when the box is selectec */
+.checkbox-container:has(input[type="checkbox"]:not(:checked)):hover::after {
+  content: url("../../assets/checkmark.svg");
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 10%;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.complete {
+  width: 1.8125rem;
+  height: 100%;
+}

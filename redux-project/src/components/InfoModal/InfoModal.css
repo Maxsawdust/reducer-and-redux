@@ -1,0 +1,26 @@
+.InfoModal {
+  /* sizing */
+  width: 45em;
+  height: fit-content;
+  padding: 2em;
+  /* position */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* styling */
+  background-color: white;
+  border-radius: 0.2rem;
+  border: 2px solid #353a55;
+  color: black;
+}
+
+.InfoModal > h2 {
+  text-decoration: underline;
+  margin-bottom: 1rem;
+}
+
+.info-container > p {
+  margin-block: 0.5rem;
+  line-height: 1rem;
+}
